@@ -1,0 +1,27 @@
+<div class="author">
+  
+  <h3 class="author_heading">
+    Discover a world of captivating narratives and valuable insights on our website
+  </h3>
+</div>
+
+<img src="/images/blog-img.jpg" alt="Blog image" class="blog-img" width="981" height="528">
+
+<section class="article">
+    <h2 class="article_heading">Latest Blogs</h2>
+
+    <ul class="article_ul">
+        <% data.forEach(blog => { %>
+            <li>
+              <a href="/post/<%= blog._id %>">
+                <span><%= blog.title %> </span>
+                <span class="article_date"><%= blog.createdAt.toDateString() %></span>
+              </a>
+            </li>
+          <% }) %>
+    </ul>
+    <% if (nextPage !== null) { %>
+        <a href="/?page=<%= nextPage %>" class="pagination">&lt; View Older Posts</a>
+      <% } %>
+</section>
+
